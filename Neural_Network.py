@@ -4,7 +4,7 @@ from random import *
 from sys import exit
 
 
-nodesPerLayer = [3, 3]
+nodesPerLayer = [2, 2, 2]
 
 random_range = [0, 100]
 random_range_avg = sum(random_range)/2
@@ -96,7 +96,10 @@ def val_of_node(x, y, N):
 
 
 def cost_output_node(i, final_node, aim):
-    return aim[i] #abs((final_node[i] - aim[i])**2)
+    if final_node[i]>aim[i]:
+        return -(aim[i] - final_node[i])**2
+    else:
+        return (aim[i] - final_node[i])**2
 
 
 def aim_of_prev_node(x, y):
